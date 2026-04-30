@@ -266,19 +266,61 @@ a:hover {
     font-weight: 600;
 }
 
-.publication {
-    border-left: 3px solid var(--accent);
-    margin-top: 18px;
-    padding: 2px 0 2px 18px;
+.publication-list {
+    counter-reset: publications;
+    list-style: none;
+    margin-top: 22px;
 }
 
-.publication p {
-    margin-bottom: 10px;
+.publication-list li {
+    border-top: 1px solid var(--line);
+    counter-increment: publications;
+    display: grid;
+    gap: 4px 18px;
+    grid-template-columns: 34px 1fr;
+    padding: 18px 0;
+}
+
+.publication-list li:first-child {
+    border-top: 0;
+    padding-top: 0;
+}
+
+.publication-list li::before {
+    color: var(--muted);
+    content: counter(publications) ".";
+    font-weight: 600;
+    grid-row: 1 / span 4;
+    padding-top: 1px;
+}
+
+.publication-title,
+.publication-meta,
+.publication-venue,
+.publication-links {
+    grid-column: 2;
+}
+
+.content-section .publication-list p {
+    margin-bottom: 0;
+}
+
+.publication-title {
+    color: #2f353b;
+    font-weight: 600;
+}
+
+.publication-meta,
+.publication-venue {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.55;
 }
 
 .publication-links {
     display: flex;
     gap: 12px;
+    margin-top: 6px;
 }
 
 .publication-links a,
