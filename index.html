@@ -14,17 +14,21 @@
             <a class="brand" href="#about">Agniva Banerjee</a>
 
             <button class="menu-toggle" type="button" aria-label="Open menu" onclick="openmenu()">
-                <i class="fas fa-bars"></i>
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
 
             <ul id="sidemenu" class="nav-links">
-                <li><a href="#about">About</a></li>
+                <li><a href="#about">Biography</a></li>
                 <li><a href="#news">News</a></li>
                 <li><a href="#publications">Publications</a></li>
+                <li><a href="#experience">Experience</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li>
                     <button class="menu-close" type="button" aria-label="Close menu" onclick="closemenu()">
-                        <i class="fas fa-times"></i>
+                        <span></span>
+                        <span></span>
                     </button>
                 </li>
             </ul>
@@ -68,12 +72,13 @@
                 <h2>Education</h2>
                 <p><strong>Ph.D. Scholar</strong><br />IISER Bhopal</p>
                 <p><strong>M.Sc.</strong><br />IIEST Shibpur, 2024</p>
+                <p><strong>B.Sc.</strong><br />Ramakrishna Mission Vivekananda Centenary College, Rahara, 2022</p>
             </section>
         </aside>
 
         <div class="content-column">
             <section id="about" class="content-section">
-                <h2>About</h2>
+                <h2>Biography</h2>
                 <p>
                     I am currently a Ph.D. scholar at the Indian Institute of Science Education and Research Bhopal, India, where I work at the intersection of learning and control for autonomous vehicles. My research focuses on autonomous navigation in multi-agent systems using data-driven reinforcement learning and model predictive control.
                 </p>
@@ -128,14 +133,6 @@
                     <p><i class="fas fa-phone-square-alt"></i> <a href="tel:+919064512313">9064512313</a></p>
                     <a class="button-link" href="images/Resume_Official.pdf" download>Download CV</a>
                 </div>
-
-                <form name="submit-to-google-sheet" class="contact-form">
-                    <input type="text" name="Name" placeholder="Your Name" required />
-                    <input type="email" name="Email" placeholder="Your Email" required />
-                    <textarea name="Message" rows="5" placeholder="Your Message"></textarea>
-                    <button type="submit">Submit</button>
-                    <span id="msg"></span>
-                </form>
             </section>
         </div>
     </main>
@@ -155,20 +152,6 @@
             sidemenu.classList.remove("is-open");
         }
 
-        const scriptURL = "https://script.google.com/macros/s/AKfycbxzYTexjTTN8G6mwKFnMnVe6k65AoAjqIxwZcYazCiod1H6EoCtLdemJGg15R6cSj7y/exec";
-        const form = document.forms["submit-to-google-sheet"];
-        const msg = document.getElementById("msg");
-
-        form.addEventListener("submit", e => {
-            e.preventDefault();
-            fetch(scriptURL, { method: "POST", body: new FormData(form) })
-                .then(() => {
-                    msg.innerHTML = "Message sent successfully";
-                    setTimeout(() => (msg.innerHTML = ""), 5000);
-                    form.reset();
-                })
-                .catch(error => console.error("Error!", error.message));
-        });
     </script>
 </body>
 </html>
