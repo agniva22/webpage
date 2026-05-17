@@ -371,6 +371,19 @@ a:hover {
     width: 100%;
 }
 
+.gallery-slide.rotate-left {
+    bottom: auto;
+    height: auto;
+    left: 50%;
+    max-width: none;
+    object-fit: contain;
+    right: auto;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-90deg) !important;
+    transform-origin: center center;
+    width: 100%;
+}
+
 .gallery-slide.is-active {
     opacity: 1;
 }
