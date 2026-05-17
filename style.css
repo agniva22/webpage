@@ -394,10 +394,11 @@ a:hover {
 
 .gallery-next {
     align-items: center;
-    background: rgba(255, 255, 255, 0.72);
-    border: 1px solid rgba(41, 98, 163, 0.22);
+    background: rgba(41, 98, 163, 0.88);
+    border: 2px solid rgba(255, 255, 255, 0.84);
     border-radius: 50%;
-    color: rgba(41, 98, 163, 0.72);
+    box-shadow: 0 6px 18px rgba(31, 37, 43, 0.2);
+    color: #ffffff;
     cursor: pointer;
     display: inline-flex;
     font-family: Georgia, "Times New Roman", serif;
@@ -411,13 +412,13 @@ a:hover {
     transform: translateY(-50%);
     transition: background 0.2s ease, color 0.2s ease, opacity 0.2s ease;
     width: 42px;
-    z-index: 2;
+    z-index: 5;
 }
 
 .gallery-next:hover,
 .gallery-next:focus-visible {
-    background: rgba(255, 255, 255, 0.86);
-    color: var(--accent);
+    background: var(--accent);
+    color: #ffffff;
     outline: none;
 }
 
