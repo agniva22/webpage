@@ -196,7 +196,9 @@
                     <img class="gallery-slide" src="Galary_images/IMG_1417.HEIC" alt="Gallery image 6" />
                     <img class="gallery-slide" src="Galary_images/IMG_0631.HEIC" alt="Gallery image 7" />
                     <img class="gallery-slide" src="Galary_images/IMG_2023.JPG.jpeg" alt="Gallery image 8" />
-                    
+                    <button class="gallery-next" type="button" aria-label="Show next gallery image">
+                        <span aria-hidden="true">&rsaquo;</span>
+                    </button>
                 </div>
             </section>
 
@@ -228,6 +230,7 @@
         }
 
         var gallerySlides = Array.prototype.slice.call(document.querySelectorAll(".gallery-slide"));
+        var galleryNext = document.querySelector(".gallery-next");
 
         function getAvailableSlides() {
             return gallerySlides.filter(function (slide) {
@@ -254,6 +257,10 @@
         }
 
         if (gallerySlides.length > 1) {
+            if (galleryNext) {
+                galleryNext.addEventListener("click", showNextGallerySlide);
+            }
+
             gallerySlides.forEach(function (slide) {
                 slide.addEventListener("error", function () {
                     slide.classList.add("is-unavailable");
