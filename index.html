@@ -20,10 +20,11 @@
             </button>
 
             <ul id="sidemenu" class="nav-links">
-                <li><a href="#about">About Me</a></li>
+                <li><a href="#about">Short Bio</a></li>
                 <li><a href="#news">News</a></li>
                 <li><a href="#publications">Publications</a></li>
                 <li><a href="#experience">Experience</a></li>
+                <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li>
                     <button class="menu-close" type="button" aria-label="Close menu" onclick="closemenu()">
@@ -37,7 +38,7 @@
 
     <main class="page-shell">
         <aside class="profile-card">
-            <img class="profile-photo" src="images/Agniva.jpeg" alt="Agniva Banerjee" />
+            <img class="profile-photo" src="DP/Agniva.jpeg" alt="Agniva Banerjee" />
 
             <h1>Agniva Banerjee</h1>
             <p class="role">Visvesvaraya Fellow</p>
@@ -189,6 +190,21 @@
                 </ul>
             </section>
 
+            <section id="gallery" class="content-section">
+                <h2>Gallery</h2>
+                <div class="gallery-slideshow" aria-label="Gallery slideshow">
+                    <img class="gallery-slide is-active" src="Galary_images/MRS_award.jpeg" alt="Gallery image 1" />
+                    <img class="gallery-slide" src="Galary_images/IEEE_MRS.jpeg" alt="Gallery image 2" />
+                    <img class="gallery-slide" src="Galary_images/ICC_award.JPG" alt="Gallery image 3" />
+                    <img class="gallery-slide" src="Galary_images/ICC_11.jpeg" alt="Gallery image 4" />
+                    <img class="gallery-slide" src="Galary_images/ICC_group.jpeg" alt="Gallery image 5" />
+                    <img class="gallery-slide" src="Galary_images/IMG_1417.HEIC" alt="Gallery image 6" />
+                    <img class="gallery-slide" src="Galary_images/IMG_0631.HEIC" alt="Gallery image 7" />
+                    <img class="gallery-slide" src="Galary_images/IMG_2023.JPG.jpeg" alt="Gallery image 8" />
+                    
+                </div>
+            </section>
+
             <section id="contact" class="content-section contact-grid">
                 <div>
                     <h2>Contact</h2>
@@ -214,6 +230,46 @@
 
         function closemenu() {
             sidemenu.classList.remove("is-open");
+        }
+
+        var gallerySlides = Array.prototype.slice.call(document.querySelectorAll(".gallery-slide"));
+
+        function getAvailableSlides() {
+            return gallerySlides.filter(function (slide) {
+                return !slide.classList.contains("is-unavailable");
+            });
+        }
+
+        function showNextGallerySlide() {
+            var availableSlides = getAvailableSlides();
+
+            if (availableSlides.length < 2) {
+                return;
+            }
+
+            var activeSlide = document.querySelector(".gallery-slide.is-active");
+            var activeIndex = availableSlides.indexOf(activeSlide);
+            var nextSlide = availableSlides[(activeIndex + 1) % availableSlides.length];
+
+            gallerySlides.forEach(function (slide) {
+                slide.classList.remove("is-active");
+            });
+
+            nextSlide.classList.add("is-active");
+        }
+
+        if (gallerySlides.length > 1) {
+            gallerySlides.forEach(function (slide) {
+                slide.addEventListener("error", function () {
+                    slide.classList.add("is-unavailable");
+
+                    if (slide.classList.contains("is-active")) {
+                        showNextGallerySlide();
+                    }
+                });
+            });
+
+            setInterval(showNextGallerySlide, 5000);
         }
 
     </script>
