@@ -1,5 +1,5 @@
 :root {
-    --bg: #B6DEF2;
+    --bg: #e9f6fc;
     --text: #2b2f33;
     --muted: #6f7782;
     --line: #e5e8ec;
@@ -364,7 +364,7 @@ a:hover {
     display: block;
     height: 100%;
     inset: 0;
-    object-fit: contain;
+    object-fit: fill;
     opacity: 0;
     position: absolute;
     transition: opacity 0.7s ease;
@@ -372,16 +372,16 @@ a:hover {
 }
 
 .gallery-slide.rotate-left {
-    bottom: auto;
+    bottom: 0;
     height: 100%;
-    left: 50%;
+    left: 0;
     max-width: none;
-    object-fit: contain;
-    right: auto;
-    top: 50%;
-    transform: translate(-50%, -50%) rotate(-90deg) !important;
+    object-fit: fill;
+    right: 0;
+    top: 0;
+    transform: rotate(-90deg) scale(0.625, 1.6) !important;
     transform-origin: center center;
-    width: auto;
+    width: 100%;
 }
 
 .gallery-slide.is-active {
